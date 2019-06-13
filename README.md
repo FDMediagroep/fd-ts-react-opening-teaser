@@ -24,9 +24,10 @@ import OpeningTeaser from '@fdmg/fd-opening-teaser';
     url="https://fd.nl/beurs/1286450/analisten-twijfelen-aan-renteverhoging-ecb"
     image={{
         src: 'https://images.fd.nl/-4mOGVA1ry0LHTzjvcxdyT-FH-E.jpg?fit=crop&crop=faces&auto=format&fm=jpg&q=45&w=599&h=337&rect=.0%2C.1557223264540338%2C.9999999999999999%2C.8442776735459663',
-        alt: 'Mario Draghi, president of the European Central Bank (ECB), departs a rates decision news conference in Frankfurt, Germany, on Thursday, Dec. 13, 2018. Draghi??said risks to the euro-area economy are worsening even as he called time on the??European Central Bank???s??flagship deflation-fighting tool. Photographer: Alex Kraus/Bloomberg'
+        alt: "Mario Draghi, president of the European Central Bank (ECB), departs a rates decision news conference in Frankfurt, Germany, on Thursday, Dec. 13, 2018. Draghi said risks to the euro-area economy are worsening even as he called time on the European Central Banks' flagship deflation-fighting tool. Photographer: Alex Kraus/Bloomberg"
     }}
-    sourceSets: {[{
+    alt="Mario Draghi, president of the European Central Bank (ECB), departs a rates decision news conference in Frankfurt, Germany, on Thursday, Dec. 13, 2018. Draghi said risks to the euro-area economy are worsening even as he called time on the European Central Banks flagship deflation-fighting tool. Photographer: Alex Kraus/Bloomberg"
+    sourceSets={[{
         media: "(max-width: 640px)",
         srcSet: `https://images.fd.nl/-4mOGVA1ry0LHTzjvcxdyT-FH-E.jpg?fit=crop&crop=faces&auto=format&fm=jpg&q=45&w=599&h=337&rect=.0%2C.1557223264540338%2C.9999999999999999%2C.8442776735459663`
     }, {
@@ -36,21 +37,21 @@ import OpeningTeaser from '@fdmg/fd-opening-teaser';
         media: "(min-width: 861px)",
         srcSet: `https://images.fd.nl/-4mOGVA1ry0LHTzjvcxdyT-FH-E.jpg?fit=crop&crop=faces&auto=format&fm=jpg&q=45&w=300&h=169&rect=.0%2C.1557223264540338%2C.9999999999999999%2C.8442776735459663`
     }]}
-    figCaption: "Mario Draghi, president of the European Central Bank (ECB), departs a rates decision news conference in Frankfurt, Germany, on Thursday, Dec. 13, 2018. Draghi??said risks to the euro-area economy are worsening even as he called time on the??European Central Bank???s??flagship deflation-fighting tool. Photographer: Alex Kraus/Bloomberg"
-    subject: "Monetair"
-    readableAge: "7 uur"
-    date: "17 Nov 1981"
-    title: "Analisten twijfelen aan renteverhoging ECB"
-    description: "Economische groei en de inflatie ontwikkelen zich niet zoals verwacht."
-    related: {[{
+    figCaption="Mario Draghi, president of the European Central Bank (ECB), departs a rates decision news conference in Frankfurt, Germany, on Thursday, Dec. 13, 2018. Draghi said risks to the euro-area economy are worsening even as he called time on the European Central Banks' flagship deflation-fighting tool. Photographer: Alex Kraus/Bloomberg"
+    subject="Monetair"
+    readableAge="7 uur"
+    date="17 Nov 1981"
+    title="Analisten twijfelen aan renteverhoging ECB"
+    description="Economische groei en de inflatie ontwikkelen zich niet zoals verwacht."
+    related={[{
         longread: true,
         title: '‘Als vrouw moet je altijd onafhankelijk zijn’',
         url: 'https://dev.fd.nl/profiel/1235280/als-vrouw-moet-je-onafhankelijk-zijn',
-        uuid: uniqid()
+        uuid: "1235280"
     }, {
         title: 'President van de Amerikaanse Fed hamert op onafhankelijkheid',
         url: 'https://dev.fd.nl/economie-politiek/1235274/president-van-de-amerikaanse-fed-hamert-op-onafhankelijkheid',
-        uuid: uniqid()
+        uuid: "1235274"
     }]}
 />
 ```

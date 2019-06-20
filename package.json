@@ -1,6 +1,6 @@
 {
   "name": "@fdmg/fd-opening-teaser",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "FD-themed opening teaser",
   "types": "dist/OpeningTeaser.d.ts",
   "main": "dist/opening-teaser.js",
@@ -62,8 +62,8 @@
     "webpack-cli": "^3.3.4"
   },
   "dependencies": {
-    "@fdmg/fd-card": "^2.0.0",
-    "@fdmg/fd-teaser": "^2.0.0",
+    "@fdmg/fd-card": "^2.0.1",
+    "@fdmg/fd-teaser": "^2.0.2",
     "@fdmg/fd-typography": "^2.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { CardTypes } from "@fdmg/fd-card";
 import { RelatedArticle, ImageType, SourceSet } from "@fdmg/fd-teaser";
 export interface Props {
@@ -25,10 +25,8 @@ export interface Props {
     updated?: boolean;
     url: string;
 }
-export default class OpeningTeaser extends PureComponent<Props, any> {
-    render(): JSX.Element;
-}
+export default function OpeningTeaser(props: Props): JSX.Element;
 /**
  * Used for the FD Style Guide Kitchensink
  */
-export declare const OpeningTeaserStyle: import("styled-components").GlobalStyleComponent<{}, import("styled-components").DefaultTheme>;
+export declare const OpeningTeaserStyle: import("styled-components").FlattenSimpleInterpolation;

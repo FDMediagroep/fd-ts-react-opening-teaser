@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import Card, { getAllCardStyles, CardTypes } from "@fdmg/fd-card";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 import TypoGraphy, { getAllTextStyles } from "@fdmg/fd-typography";
 import {
     RelatedArticle,
@@ -40,50 +40,48 @@ export interface Props {
     url: string;
 }
 
-export default class OpeningTeaser extends PureComponent<Props, any> {
-    render() {
-        return (
-            <>
-                <GlobalStyle/>
-                <Card cardStyle={this.props.cardStyle ? this.props.cardStyle : 'default'} id={this.props.id} className={`fd-opening-teaser${this.props.className ? ` ${this.props.className}` : ''}`}>
-                    <a href={this.props.url}>
-                        <TeaserFigure
-                            figCaption={this.props.figCaption}
-                            image={this.props.image}
-                            sourceSets={this.props.sourceSets}
-                        />
-                        <div className="meta">
-                            {this.props.updated ? <UpdateLabel/> : <span className="prefix">{this.props.subject}</span>}
-                            <time>{this.props.readableAge}</time>
-                        </div>
-                        <div className="text-container">
-                            <TypoGraphy textStyle="opening-teaser-h"><h1>{this.props.title}</h1></TypoGraphy>
-                            {this.props.description ? <p className="intro">{this.props.description}</p> : null}
-                        </div>
-                    </a>
-                    <TeaserRelated
-                        items={this.props.related}
+export default function OpeningTeaser(props: Props) {
+    return (
+        <>
+            <GlobalStyle/>
+            <Card cardStyle={props.cardStyle ? props.cardStyle : 'default'} id={props.id} className={`fd-opening-teaser${props.className ? ` ${props.className}` : ''}`}>
+                <a href={props.url}>
+                    <TeaserFigure
+                        figCaption={props.figCaption}
+                        image={props.image}
+                        sourceSets={props.sourceSets}
                     />
-                    {this.props.hideFooter ? null : <TeaserFooter
-                        baseUrl={this.props.baseUrl}
-                        bookmarked={this.props.bookmarked}
-                        comments={this.props.comments}
-                        date={this.props.date}
-                        description={this.props.description}
-                        onBookmark={this.props.onBookmark}
-                        shareTitle={this.props.shareTitle}
-                        subject={this.props.subject}
-                        teaserId={this.props.id}
-                        title={this.props.title}
-                        url={this.props.url}
-                    />}
-                </Card>
-            </>
-        );
-    }
+                    <div className="meta">
+                        {props.updated ? <UpdateLabel/> : <span className="prefix">{props.subject}</span>}
+                        <time>{props.readableAge}</time>
+                    </div>
+                    <div className="text-container">
+                        <TypoGraphy textStyle="opening-teaser-h"><h1>{props.title}</h1></TypoGraphy>
+                        {props.description ? <p className="intro">{props.description}</p> : null}
+                    </div>
+                </a>
+                <TeaserRelated
+                    items={props.related}
+                />
+                {props.hideFooter ? null : <TeaserFooter
+                    baseUrl={props.baseUrl}
+                    bookmarked={props.bookmarked}
+                    comments={props.comments}
+                    date={props.date}
+                    description={props.description}
+                    onBookmark={props.onBookmark}
+                    shareTitle={props.shareTitle}
+                    subject={props.subject}
+                    teaserId={props.id}
+                    title={props.title}
+                    url={props.url}
+                />}
+            </Card>
+        </>
+    );
 }
 
-const GlobalStyle = createGlobalStyle`
+const styles = css`
 .fd-opening-teaser {
     font-family: 'ProximaNovaRegular', Helvetica, sans-serif;
 
@@ -160,12 +158,14 @@ const GlobalStyle = createGlobalStyle`
 /**
  * Used for the FD Style Guide Kitchensink
  */
-export const OpeningTeaserStyle = createGlobalStyle`
-${getAllCardStyles().globalStyle.rules}
-${getAllTextStyles(['opening-teaser-h']).globalStyle.rules}
-${(UpdateLabelStyle as any).globalStyle.rules}
-${(TeaserFigureStyle as any).globalStyle.rules}
-${(TeaserRelatedStyle as any).globalStyle.rules}
-${(TeaserFooterStyle as any).globalStyle.rules}
-${(GlobalStyle as any).globalStyle.rules}
+export const OpeningTeaserStyle = css`
+${getAllCardStyles()}
+${getAllTextStyles(['opening-teaser-h'])}
+${UpdateLabelStyle}
+${TeaserFigureStyle}
+${TeaserRelatedStyle}
+${TeaserFooterStyle}
+${styles}
 `;
+
+const GlobalStyle = createGlobalStyle`${OpeningTeaserStyle}`;

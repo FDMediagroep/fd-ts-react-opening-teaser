@@ -63,7 +63,7 @@
   },
   "dependencies": {
     "@fdmg/fd-card": "^1.0.9",
-    "@fdmg/fd-teaser": "^1.0.7",
+    "@fdmg/fd-teaser": "^2.0.0",
     "@fdmg/fd-typography": "^1.0.31",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

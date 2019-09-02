@@ -1,55 +1,57 @@
 language: node_js
 node_js:
-- 11.10.1
+    - 11.10.1
 python:
-- '3.6'
+    - "3.6"
 cache:
-- pip
+    - pip
 addons:
-  apt:
-    packages:
-    - nodejs-legacy
+    apt:
+        packages:
+            - nodejs-legacy
 branches:
-  only:
-  - master
-  - "/^greenkeeper/.*$/"
+    only:
+        - master
+        - "/^greenkeeper/.*$/"
 stages:
-- test
+    - test
 before_install:
-- pip install --user awscli
-- export PATH=$PATH:$HOME/.local/bin
+    - pip install --user awscli
+    - export PATH=$PATH:$HOME/.local/bin
 install:
-- npm install
+    - npm install
 jobs:
-  include:
-  - stage: test
-    name: Build demo
-    script: npm run build-demo
-  - stage: test
-    name: Unit test
-    script: npm test
+    include:
+        - stage: test
+          name: Build demo
+          script: npm run build-demo
+        - stage: test
+          name: Unit test
+          script: npm test
 after_success:
-- cat ./dist/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+    - cat ./dist/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 deploy:
-- provider: npm
-  email: willem_liu@hotmail.com
-  on:
-    branch: master
-  api_key:
-    secure: QrqABHUuccuIZ1LyURc2WmjjoOuR8XjTcArDbpBLQYMoGDyqj6NgL9RqEF5iwxkq2wbVRyLDJANJMU6F9s25h9h9EN6spJowk2zKRGZIx5eaCq+duoinH+xfcuW1xD7a4DToKLURy8AXrDMT5cX4mdNhKhAwJdh5mYPe9YNuj//K207B86/ab3bwpF0l5Zbpm38EcfInuorWhusM3lCo8QscLsYcvJ0IylpFh4Rt1IwEAofut/KbZXjMmhRAWgezCKqOT+xPna79V958osPoK/MEA0IJ8Xfb2sz/mo/uBx7/GGb0abmteILtFoi67GjrLkAPuMdyXNk3BfnpHZplz73IboNC/iobGycslhj4tOF5o1O3TKcK4KX6PzbE640/G0Oo+dEeaI7gQA7v0xHStMfZHk5dFSei+4H98gdzkqAddKqGjMMoZe/4o5NoOF+ZQr0H1wLmVG9BdoMBmnPK2au3Gt4QO+BhkAcn+ojXybO38v4cUOmGDVeDZtWeHfM5lx4rObynXB/qBa38L9KuZ9YNujS62rZ0BqSCvEHWFxYSplMmmBKhvTRx/vLSQV3n+lVRIg0EdT8CeINcDv5GXEYCzeR/MLhfn6M7mt8lyvO8Q7Qdcc8tKSH77jkJCoRn3ZQZgso7qIEpt/4IhD+RQNfPFGLpQvvvCUMKTD10tRc=
-- provider: s3
-  secret_access_key:
-    secure: Z8DmNHIsOPTRfJOAJFrNe+lMmZBex+EQB5STGU8VeUF+5tsywyeMkTYRMIR3eupmSIg8n7sEdemb/fs9aBoM/ccP8xUtkTXL8yL+zwJ1kTkCQBATmkciwHMYZGQ/CyRWzbvDyml4XmoKMjhbgh4dtu/NX28nogjhjvnNIo/mUPbXbNlcfeyqJGZJldqWPNYRzcxjNzdzh4NTRnfbcPFTgyqK/qsaYjQbqQ+Dudzw8UgqoR6tBYBAxtIGzdWUQPWiTm/7Ytd+3vtyCospnVFKzZUSDq3VShhLEMK1HazL1X0cfbziZBfuv7jabBzodML8Us26Q3r2HCZBEqUktCVeSwVohN54oGF1G/LKLcKdtKA1Zyqe474bhdYyPDeSSYPb6Y0EvKoeXyN+F7dSBiFWau3567CgMCzi+KNfrI5gy8n3aBF8EOkycioK0Monw4Ezm5n6TFEOSAeV3WjfwaxBWAbO9nDaHcfFIovkBa0PhQW23pnVZf8+SB+7BfINyMbYXK8E0mb306per3TuDL0cyxl4Ipu0GxAo6KnbWRlgOWMeh/H4jc7Ngp7rZEkoPC9L0+wBP8xqehhihpBYC3VbFljnVZvcguU6uHQFpfOM4RPDuiP/uuL2TrVs4spTOKghH/gQAniFHD0AEB0Fo6H3+ppckUepovZzELqotn9m9mc=
-  access_key_id:
-    secure: fcoN1t9DWaqFnH1tawjXPr0ysSwGr6BvRHNGy3B5NlZgJmWw4V1qczte9J8smbZmwkBZQFYFnCqAfa3RMVvxjHc3qc5YBT6SMP/aYE1TpDXRhpr6CPrMP0zNwIlQvh/9wlPhwC5JfEkNkuk2+ohBSMha4AijcdTS4BGdDw57/LpNUTExKqf+MHTwkq4X7SsfV5ON2VVpLYZfBaBOIEx02OMSkhv1YYbpMr2ZAgpj3EfPSI6aEjFwirIhKj7X9ugkg/Vvlq6rZ8DAXrcig2vESu+3a5mIynRARyVChLTN1FBe6Nst+ApuoQui2hJ3fcq8nb5IsaW9K3nn84jf3q9EGQKb+wH8Mv0JTv2QJbh57eElIAZBqT2GX1Ux8DkipJOcJTHw9tFqLEOixrrjkcKc8yoFgSuSrHOyr4nYEvCBBTstGU2E8pCk3eVsLl75oR4o6ar3EjetIGOEyxf/mA3EVuCVZz3cYbUO4f6agZpaXQyrPIFe2NS3egbBEGNEsxbVJTeMugbPqbx6eGtWyQIKz9jVgvUVUIxl2txlkzG5VAwmm3gZvFjw4mLeKgNfrPq35eK6eK8zeMuCHbBZoluZ7qngyYTc9XeWO8+R5WoR8zvt/w4xvMMFqYX7ODYr8R8eTYyWMBR87dHqDLgYCI/lE7KtJuJiTmOSgGMwsARxAMA=
-  region: eu-west-1
-  bucket: static.fd.nl
-  skip_cleanup: true
-  acl: public_read
-  local_dir: dist
-  upload_dir: react/opening-teaser
-  on:
-    branch: master
+    - provider: npm
+      email: willem_liu@hotmail.com
+      on:
+          branch: master
+      api_key:
+          secure: QrqABHUuccuIZ1LyURc2WmjjoOuR8XjTcArDbpBLQYMoGDyqj6NgL9RqEF5iwxkq2wbVRyLDJANJMU6F9s25h9h9EN6spJowk2zKRGZIx5eaCq+duoinH+xfcuW1xD7a4DToKLURy8AXrDMT5cX4mdNhKhAwJdh5mYPe9YNuj//K207B86/ab3bwpF0l5Zbpm38EcfInuorWhusM3lCo8QscLsYcvJ0IylpFh4Rt1IwEAofut/KbZXjMmhRAWgezCKqOT+xPna79V958osPoK/MEA0IJ8Xfb2sz/mo/uBx7/GGb0abmteILtFoi67GjrLkAPuMdyXNk3BfnpHZplz73IboNC/iobGycslhj4tOF5o1O3TKcK4KX6PzbE640/G0Oo+dEeaI7gQA7v0xHStMfZHk5dFSei+4H98gdzkqAddKqGjMMoZe/4o5NoOF+ZQr0H1wLmVG9BdoMBmnPK2au3Gt4QO+BhkAcn+ojXybO38v4cUOmGDVeDZtWeHfM5lx4rObynXB/qBa38L9KuZ9YNujS62rZ0BqSCvEHWFxYSplMmmBKhvTRx/vLSQV3n+lVRIg0EdT8CeINcDv5GXEYCzeR/MLhfn6M7mt8lyvO8Q7Qdcc8tKSH77jkJCoRn3ZQZgso7qIEpt/4IhD+RQNfPFGLpQvvvCUMKTD10tRc=
+    - provider: s3
+      secret_access_key:
+          secure: Z8DmNHIsOPTRfJOAJFrNe+lMmZBex+EQB5STGU8VeUF+5tsywyeMkTYRMIR3eupmSIg8n7sEdemb/fs9aBoM/ccP8xUtkTXL8yL+zwJ1kTkCQBATmkciwHMYZGQ/CyRWzbvDyml4XmoKMjhbgh4dtu/NX28nogjhjvnNIo/mUPbXbNlcfeyqJGZJldqWPNYRzcxjNzdzh4NTRnfbcPFTgyqK/qsaYjQbqQ+Dudzw8UgqoR6tBYBAxtIGzdWUQPWiTm/7Ytd+3vtyCospnVFKzZUSDq3VShhLEMK1HazL1X0cfbziZBfuv7jabBzodML8Us26Q3r2HCZBEqUktCVeSwVohN54oGF1G/LKLcKdtKA1Zyqe474bhdYyPDeSSYPb6Y0EvKoeXyN+F7dSBiFWau3567CgMCzi+KNfrI5gy8n3aBF8EOkycioK0Monw4Ezm5n6TFEOSAeV3WjfwaxBWAbO9nDaHcfFIovkBa0PhQW23pnVZf8+SB+7BfINyMbYXK8E0mb306per3TuDL0cyxl4Ipu0GxAo6KnbWRlgOWMeh/H4jc7Ngp7rZEkoPC9L0+wBP8xqehhihpBYC3VbFljnVZvcguU6uHQFpfOM4RPDuiP/uuL2TrVs4spTOKghH/gQAniFHD0AEB0Fo6H3+ppckUepovZzELqotn9m9mc=
+      access_key_id:
+          secure: fcoN1t9DWaqFnH1tawjXPr0ysSwGr6BvRHNGy3B5NlZgJmWw4V1qczte9J8smbZmwkBZQFYFnCqAfa3RMVvxjHc3qc5YBT6SMP/aYE1TpDXRhpr6CPrMP0zNwIlQvh/9wlPhwC5JfEkNkuk2+ohBSMha4AijcdTS4BGdDw57/LpNUTExKqf+MHTwkq4X7SsfV5ON2VVpLYZfBaBOIEx02OMSkhv1YYbpMr2ZAgpj3EfPSI6aEjFwirIhKj7X9ugkg/Vvlq6rZ8DAXrcig2vESu+3a5mIynRARyVChLTN1FBe6Nst+ApuoQui2hJ3fcq8nb5IsaW9K3nn84jf3q9EGQKb+wH8Mv0JTv2QJbh57eElIAZBqT2GX1Ux8DkipJOcJTHw9tFqLEOixrrjkcKc8yoFgSuSrHOyr4nYEvCBBTstGU2E8pCk3eVsLl75oR4o6ar3EjetIGOEyxf/mA3EVuCVZz3cYbUO4f6agZpaXQyrPIFe2NS3egbBEGNEsxbVJTeMugbPqbx6eGtWyQIKz9jVgvUVUIxl2txlkzG5VAwmm3gZvFjw4mLeKgNfrPq35eK6eK8zeMuCHbBZoluZ7qngyYTc9XeWO8+R5WoR8zvt/w4xvMMFqYX7ODYr8R8eTYyWMBR87dHqDLgYCI/lE7KtJuJiTmOSgGMwsARxAMA=
+      region: eu-west-1
+      bucket: static.fd.nl
+      skip_cleanup: true
+      acl: public_read
+      local_dir: dist
+      upload_dir: react/opening-teaser
+      on:
+          branch: master
+notifications:
+    webhooks: https://outlook.office.com/webhook/09d65d9c-ba4d-4ce4-8ff9-985e1ea578a1@8f2a0bdd-25fe-430a-adb5-0d2367dd50ee/TravisCI/308b447ae6eb4c3f9c7e153e97a4bd25/aaeb5e7b-fe7b-4d97-9adf-3089c10da2cc
 after_deploy:
-- aws cloudfront create-invalidation --distribution-id $CDN_DISTRIBUTION_ID --paths
-  "/react/opening-teaser/*"
+    - aws cloudfront create-invalidation --distribution-id $CDN_DISTRIBUTION_ID --paths
+      "/react/opening-teaser/*"

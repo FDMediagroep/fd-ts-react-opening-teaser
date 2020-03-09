@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/FDMediagroep/fd-ts-react-opening-teaser.svg?branch=master)](https://travis-ci.org/FDMediagroep/fd-ts-react-opening-teaser)
 [![Coverage Status](https://coveralls.io/repos/github/FDMediagroep/fd-ts-react-opening-teaser/badge.svg?branch=master)](https://coveralls.io/github/FDMediagroep/fd-ts-react-opening-teaser?branch=master)
 [![npm version](https://badge.fury.io/js/%40fdmg%2Ffd-opening-teaser.svg)](https://badge.fury.io/js/%40fdmg%2Ffd-opening-teaser)
-[![Greenkeeper badge](https://badges.greenkeeper.io/FDMediagroep/fd-ts-react-opening-teaser.svg)](https://greenkeeper.io/)
+
 
 # fd-opening-teaser
 FD-themed opening teaser.

@@ -65,8 +65,8 @@
         "@fdmg/fd-card": "^2.0.2",
         "@fdmg/fd-teaser": "^2.0.3",
         "@fdmg/fd-typography": "^2.0.1",
-        "react": "^16.13.0",
-        "react-dom": "^16.13.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
         "styled-components": "^5.0.1",
         "uniqid": "^5.2.0"
     },

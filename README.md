@@ -1,20 +1,26 @@
+> :exclamation: **DEPRECATED** :exclamation: : Superseded by @fdmg/design-system. See: https://github.com/FDMediagroep/fd-design-system
+
 [![Build Status](https://travis-ci.org/FDMediagroep/fd-ts-react-opening-teaser.svg?branch=master)](https://travis-ci.org/FDMediagroep/fd-ts-react-opening-teaser)
 [![Coverage Status](https://coveralls.io/repos/github/FDMediagroep/fd-ts-react-opening-teaser/badge.svg?branch=master)](https://coveralls.io/github/FDMediagroep/fd-ts-react-opening-teaser?branch=master)
 [![npm version](https://badge.fury.io/js/%40fdmg%2Ffd-opening-teaser.svg)](https://badge.fury.io/js/%40fdmg%2Ffd-opening-teaser)
 
-
 # fd-opening-teaser
+
 FD-themed opening teaser.
 
 # Installation
-* Run `npm i -D @fdmg/fd-opening-teaser`
+
+-   Run `npm i -D @fdmg/fd-opening-teaser`
 
 # Demo
+
 To run the demo, check-out this repository and run `npm run build-demo`.
 After the build succeeded you can open `dist/demo.html` with your webbrowser.
-* [Demo](http://static.fd.nl/react/opening-teaser/demo.html)
+
+-   [Demo](http://static.fd.nl/react/opening-teaser/demo.html)
 
 # Usage
+
 ```
 import OpeningTeaser from '@fdmg/fd-opening-teaser';
 ...
